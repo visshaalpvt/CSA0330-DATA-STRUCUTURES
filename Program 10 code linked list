@@ -1,0 +1,23 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+int main(){
+    struct node *head=NULL,*temp;
+    int n,x;
+    scanf("%d",&n);
+    while(n--){
+        scanf("%d",&x);
+        temp=(struct node*)malloc(sizeof(struct node));
+        temp->data=x;
+        temp->next=head;
+        head=temp;
+    }
+    while(head){
+        printf("%d ",head->data);
+        head=head->next;
+    }
+}
