@@ -1,0 +1,37 @@
+#include <stdio.h>
+#define MAX 5
+int stack[MAX], top = -1;
+void push(int x) {
+    if (top == MAX - 1)
+        printf("Stack Overflow\n");
+    else {
+        stack[++top] = x;
+        printf("Pushed %d\n", x);
+    }
+}
+void pop() {
+    if (top == -1)
+        printf("Stack Underflow\n");
+    else
+        printf("Popped %d\n", stack[top--]);
+}
+void peek() {
+    if (top == -1)
+        printf("Stack Empty\n");
+    else
+        printf("Top element: %d\n", stack[top]);
+}
+
+int main() {
+    int ch, x;
+    while (1) {
+        printf("\n1.Push 2.Pop 3.Peek 4.Exit\n");
+        scanf("%d", &ch);
+        switch (ch) {
+            case 1: scanf("%d", &x); push(x); break;
+            case 2: pop(); break;
+            case 3: peek(); break;
+            case 4: return 0;
+        }
+    }
+}
